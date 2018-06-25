@@ -1,6 +1,7 @@
 package com.katherineebel.todolist;
 
 import com.katherineebel.todolist.datamodel.Todo;
+import com.katherineebel.todolist.datamodel.TodoData;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -26,6 +27,7 @@ public class Controller {
     private Label deadlineLabel;
 
     public void initialize() {
+        /*
         Todo item1 = new Todo("mail birthday card",
                 "Buy a 30th birthday car for John",
                 LocalDate.of(2018, Month.JULY, 25));
@@ -48,7 +50,8 @@ public class Controller {
         todos.add(item3);
         todos.add(item4);
         todos.add(item5);
-
+        TodoData.getInstance().setTodos(todos);
+        */
         todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<>() {
             @Override
             public void changed(ObservableValue<? extends Todo> observable, Todo oldValue, Todo newValue) {
@@ -59,7 +62,7 @@ public class Controller {
                 }
             }
         });
-        todoListView.getItems().setAll(todos);
+        todoListView.getItems().setAll(TodoData.getInstance().getTodos());
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         todoListView.getSelectionModel().selectFirst();
     }
