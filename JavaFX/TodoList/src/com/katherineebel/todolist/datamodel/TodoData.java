@@ -58,21 +58,14 @@ public class TodoData {
 
     public void storeTodoItems() throws IOException {
         Path path = Paths.get(filename);
-        BufferedWriter bw = Files.newBufferedWriter(path);
-        try {
-            Iterator<Todo> todoIterator = todos.iterator();
-            while (todoIterator.hasNext()) {
-                Todo item = todoIterator.next();
+        try (BufferedWriter bw = Files.newBufferedWriter(path)) {
+            for (Todo item : todos) {
                 bw.write(String.format("%s\t%s\t%s\t",
                         item.getShortDescription(),
                         item.getDetails(),
                         item.getDeadline().format(formatter
                         )));
                 bw.newLine();
-            }
-        } finally {
-            if (bw != null) {
-                bw.close();
             }
         }
     }
