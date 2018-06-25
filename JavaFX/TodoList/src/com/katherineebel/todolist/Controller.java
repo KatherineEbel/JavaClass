@@ -11,6 +11,7 @@ import javafx.scene.control.TextArea;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,13 +49,13 @@ public class Controller {
         todos.add(item4);
         todos.add(item5);
 
-        todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+        todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<>() {
             @Override
-            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+            public void changed(ObservableValue<? extends Todo> observable, Todo oldValue, Todo newValue) {
                 if (newValue != null) {
-                    Todo item = todoListView.getSelectionModel().getSelectedItem();
-                    todoDetailsArea.setText(item.getDetails());
-                    deadlineLabel.setText(item.getDeadline().toString());
+                    todoDetailsArea.setText(newValue.getDetails());
+                    DateTimeFormatter df = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+                    deadlineLabel.setText(df.format(newValue.getDeadline()));
                 }
             }
         });
