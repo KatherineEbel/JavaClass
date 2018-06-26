@@ -1,6 +1,7 @@
 package com.katherineebel.todolist.datamodel;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,16 +9,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Iterator;
-import java.util.List;
 
 public class TodoData {
     private static final TodoData instance = new TodoData();
     private static final String filename = "TodoListData.txt";
-    private List<Todo> todos;
+    private ObservableList<Todo> todos;
     private final DateTimeFormatter formatter;
 
     public static TodoData getInstance() {
@@ -28,8 +26,12 @@ public class TodoData {
         formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     }
 
-    public List<Todo> getTodos() {
+    public ObservableList<Todo> getTodos() {
         return todos;
+    }
+
+    public void addTodoItem(Todo todo) {
+        todos.add(todo);
     }
 
     public void loadTodos() throws IOException {
@@ -69,8 +71,4 @@ public class TodoData {
             }
         }
     }
-
-//    public void setTodos(List<Todo> todos) {
-//        this.todos = todos;
-//    }
 }
