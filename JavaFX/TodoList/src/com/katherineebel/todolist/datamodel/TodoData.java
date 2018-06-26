@@ -71,4 +71,8 @@ public class TodoData {
             }
         }
     }
+
+    public void deleteTodoItem(Todo item) {
+        todos.remove(item);
+    }
 }
