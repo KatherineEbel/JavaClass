@@ -1,5 +1,4 @@
 mail birthday card	Buy a 30th birthday car for John	25-07-2018	
-Doctor's Appointment	See Dr Smith at 123 Main Street	10-08-2018	
 Finish design proposal for client	I promised Mike I'd email website mockups by Friday Sept 30th	30-09-2018	
 Pickup Doug at train station	doug's arriving on June 27 on the 5:00 train	27-06-2018	
 Finish JavaMasterclass	Work on JavaFX section of course for one hour	26-06-2018	
