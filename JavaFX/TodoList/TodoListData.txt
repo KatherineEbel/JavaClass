@@ -6,3 +6,5 @@ Pick up dry cleaning	The clothes should be ready by 2:30	29-06-2018
 Finish JavaMasterclass	Work on JavaFX section of course for one hour	26-06-2018	
 Test Todo	This is a test todo	30-06-2018	
 Test 2	This is another test item	27-06-2018	
+Due today	Testing color	25-06-2018	
+Expired	another overdue item.	11-06-2018	

@@ -24,9 +24,4 @@ public class Todo {
     public LocalDate getDeadline() {
         return deadline;
     }
-
-    @Override
-    public String toString() {
-        return shortDescription;
-    }
 }
