@@ -14,6 +14,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.control.ToggleButton?>
 <BorderPane fx:id="mainBorderPane"
             fx:controller="com.katherineebel.todolist.Controller"
             xmlns:fx="http://javafx.com/fxml"
@@ -26,11 +27,11 @@
                               onAction="#showNewItemDialog"
                     />
                     <SeparatorMenuItem/>
-                    <MenuItem text="Exit"/>
+                    <MenuItem text="Exit" onAction="#handleExit"/>
                 </Menu>
             </MenuBar>
             <ToolBar>
-                <HBox>
+                <HBox spacing="10" alignment="CENTER">
                     <Button onAction="#showNewItemDialog"
                     >
                         <tooltip>
@@ -42,6 +43,14 @@
                             </ImageView>
                         </graphic>
                     </Button>
+                    <ToggleButton fx:id="filterToggleButton"
+                                  text="Today's Items"
+                                  onAction="#handleFilterButton"
+                    >
+                        <tooltip>
+                            <Tooltip text="ButtonDown: Show only Today's items. Button Up: Show all."/>
+                        </tooltip>
+                    </ToggleButton>
                 </HBox>
             </ToolBar>
         </VBox>
